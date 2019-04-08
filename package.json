@@ -1,0 +1,48 @@
+{
+  "name": "react-rendering-debugger",
+  "version": "0.0.1",
+  "description": "Rendering debugger for React components",
+  "main": "dist/index.js",
+  "es6": "index.js",
+  "scripts": {
+    "lint": "eslint *.js",
+    "build": "webpack --config webpack.config.js --mode production"
+  },
+  "keywords": [
+    "react"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fadilmamedov/react-rendering-debugger.git"
+  },
+  "author": {
+    "name": "Fadil Mamedov",
+    "email": "fadil.mamedov@mail.ru"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fadilmamedov/react-rendering-debugger/issues"
+  },
+  "homepage": "https://github.com/fadilmamedov/react-rendering-debugger#readme",
+  "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.4",
+    "eslint": "^5.8.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
+    "react": "^16.6.0",
+    "webpack": "^4.23.1",
+    "webpack-cli": "^3.1.2"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "react": ">=15.5",
+    "react-dom": ">=15.5"
+  }
+}
