@@ -1,14 +1,29 @@
 import React from 'react';
 
-export const withRenderingDebugger = ({ collapse = false } = {}) => Component => (
-  class Test extends React.Component {
-    componentDidUpdate(previousProps, previousState) {
-      const label = 'component did update';
+const defaultOptions = {
+  groupLabel: 'component update',
+  collapseGroup: false,
+};
 
-      if (collapse) {
-        console.groupCollapsed(label);
+const normalizeOptions = (options) => {
+  const groupLabel = options.groupLabel || defaultOptions.groupLabel;
+  const collapseGroup = options.collapseGroup || defaultOptions.collapseGroup;
+
+  return {
+    groupLabel,
+    collapseGroup,
+  };
+};
+
+export const withRenderingDebugger = (options = defaultOptions) => Component => (
+  class RenderingDebugger extends React.Component {
+    componentDidUpdate(previousProps, previousState) {
+      const { groupLabel, collapseGroup } = normalizeOptions(options);
+
+      if (collapseGroup) {
+        console.groupCollapsed(groupLabel);
       } else {
-        console.group(label);
+        console.group(groupLabel);
       }
 
       const currentProps = this.props || {};
@@ -39,7 +54,7 @@ export const withRenderingDebugger = ({ collapse = false } = {}) => Component =>
         }
       });
 
-      console.groupEnd(label);
+      console.groupEnd(groupLabel);
     }
 
     render() {
